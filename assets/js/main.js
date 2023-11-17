@@ -1,11 +1,13 @@
 "use strict"
 
+// Get DOM elements
 const [playerOneCurrentScore, playerTwoCurrentScore] = document.getElementsByClassName('current')
 const [playerOneFinalScore, playerTwoFinalScore] = document.getElementsByClassName('final-score')
 const [newGameButton, rollDiceButton, holdButton] = document.getElementsByTagName('button')
 const [player1container, player2container] = document.getElementsByClassName('gamer-container')
 const diceImage = document.getElementsByTagName('img')
 
+// Initialize game state variables
 let playerOneSumCurrentScore = 0
 let playerOneTotalScore = 0
 let playerTwoSumCurrentScore = 0
@@ -13,7 +15,11 @@ let playerTwoTotalScore = 0
 let diceNumber = [1]
 let turn = 1
 
-rollDiceButton.addEventListener('click', function() {
+// Roll dice button event listener
+rollDiceButton.addEventListener('click', handleRollDice)
+
+// Handle roll dice button click event
+function handleRollDice() {
     diceNumber.push(Math.floor(Math.random() * 6) + 1)
     diceImage[diceNumber[diceNumber.length - 2] - 1].style.display = 'none'
     diceImage[diceNumber[diceNumber.length - 1] - 1].style.display = 'block'
@@ -33,10 +39,12 @@ rollDiceButton.addEventListener('click', function() {
         playerTwoSumCurrentScore += (diceNumber[diceNumber.length - 1])
         playerTwoCurrentScore.textContent = playerTwoSumCurrentScore
     }
-})
+}
 
+// hold button event listener
 holdButton.addEventListener('click', holdHandler)
 
+// Handle hold button click event
 function holdHandler() {
     if (turn === 1) {
         playerOneCurrentScore.textContent = 0
@@ -57,7 +65,11 @@ function holdHandler() {
     }
 }
 
-newGameButton.addEventListener('click', function() {
+// new game button event listener
+newGameButton.addEventListener('click', newGameHandler)
+
+// new game button click event
+function newGameHandler() {
     diceImage[diceNumber[diceNumber.length - 1] - 1].style.display = 'none'
     playerOneSumCurrentScore = 0
     playerOneTotalScore = 0
@@ -73,4 +85,4 @@ newGameButton.addEventListener('click', function() {
         player1container.classList.add('active')
         turn = 1
     }
-})
+}

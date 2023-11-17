@@ -81,6 +81,13 @@ h2 {
     background-color: #D6B1C4;
 }
 
+/* all item in center of page */
+.center-item {
+    position: absolute;
+    transform: translateX(-50%);
+    left: 50%;
+}
+
 .dice {
     position: absolute;
     top: 30%;
@@ -97,12 +104,6 @@ button {
     border-radius: 30px;
     font-size: 1.2rem;
     cursor: pointer;
-}
-
-.center-item {
-    position: absolute;
-    transform: translateX(-50%);
-    left: 50%;
 }
 
 .new-game {
