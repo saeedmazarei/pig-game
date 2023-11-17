@@ -1,7 +1,5 @@
 # pig-game
 
-# Dice Game
-
 This is a simple dice game implemented in JavaScript. The game allows two players to take turns rolling a dice and accumulating scores. The goal of the game is to reach a certain final score before the opponent.
 
 ## Features
